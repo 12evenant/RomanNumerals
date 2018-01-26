@@ -59,19 +59,6 @@ namespace RomanNumerals
             currentValue -= romanNumeralValue.Value;
             return romanNumeralValue.Symbol;
         }
-        //private void AddValueOfOneToRomanNumeral()
-        //{
-        //    string threeOnes = ONE_VALUE + ONE_VALUE + ONE_VALUE;
-            
-        //    if(!_romanNumeral.Contains(threeOnes))
-        //        _romanNumeral += ONE_VALUE;
-        //    else
-        //    {
-        //        _romanNumeral = string.Empty;
-        //        _romanNumeral += ONE_VALUE;
-        //        _romanNumeral += FIVE_VALUE;
-        //    }
-        //}
 
     }
 }
