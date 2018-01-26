@@ -7,6 +7,7 @@ namespace RomanNumeralTests
     {
         [Theory]
         [InlineData(1, "I")]
+        [InlineData(3,"III")]
         public void WhenAValueIsPassedItOutputsTheRomanNumeralVersionOfThatNumber(int value, string expectedValue)
         {
             RomanNumeralGenerator romanNumeralGenerator = new RomanNumeralGenerator();
