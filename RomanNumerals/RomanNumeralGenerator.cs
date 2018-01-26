@@ -53,15 +53,11 @@ namespace RomanNumerals
                 string symbolLimit =
                     string.Concat(Enumerable.Repeat(romanNumeralValue.Symbol, _maxPossibleLetterNumberOfLetter));
 
-
-                
-
                 if ((romanNumeral.Contains(symbolLimit) && romanNumeral != symbolLimit) ||
                     currentValue == romanNumeralValue.Value - lowestPossibleRomanNumeral.Value)
                 {
                     romanNumeral += addValueToString(lowestPossibleRomanNumeral, ref currentValue) +
                                    addValueToString(romanNumeralValue, ref currentValue);
-
                 }
 
             }
