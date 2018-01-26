@@ -44,6 +44,10 @@ namespace RomanNumerals
                 {
                     romanNumeral += addValueToString(romanNumeralValue, ref currentValue);
                 }
+
+                if (currentValue == 0)
+                    continue;
+
                 string symbolLimit =
                     string.Concat(Enumerable.Repeat(romanNumeralValue.Symbol, _maxPossibleLetterNumberOfLetter));
 
