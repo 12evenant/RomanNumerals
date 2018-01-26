@@ -9,6 +9,7 @@ namespace RomanNumerals
     public class RomanNumeralGenerator
     {
         private const string ONE_VALUE = "I";
+        private const string FIVE_VALUE = "V";
 
         private string _romanNumeral;
 
@@ -16,14 +17,21 @@ namespace RomanNumerals
         {
             _romanNumeral = string.Empty;
         }
+
         public string GenerateRomanNumeral(int value)
         {
-            while(value > 0)
-            { 
-                AddValueOfOneToRomanNumeral();
-                value--;
+            if (value >= 5)
+            {
+                _romanNumeral += FIVE_VALUE;
             }
-
+            else
+            {
+                while (value > 0)
+                {
+                    AddValueOfOneToRomanNumeral();
+                    value--;
+                }
+            }
             return _romanNumeral;
         }
 
