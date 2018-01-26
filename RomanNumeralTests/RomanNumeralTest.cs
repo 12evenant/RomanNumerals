@@ -8,6 +8,7 @@ namespace RomanNumeralTests
         [Theory]
         [InlineData(1, "I")]
         [InlineData(3,"III")]
+        [InlineData(4,"IV")]
         [InlineData(5,"V")]
         public void WhenAValueIsPassedItOutputsTheRomanNumeralVersionOfThatNumber(int value, string expectedValue)
         {
