@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace RomanNumerals
 {
-    class RomanNumeralGenerator
+    public class RomanNumeralGenerator
     {
+        public string GenerateRomanNumeral(int value)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
