@@ -8,9 +8,11 @@ namespace RomanNumerals
 {
     public class RomanNumeralGenerator
     {
+        private const string ONE_VALUE = "I";
+
         public string GenerateRomanNumeral(int value)
         {
-            return "I";
+            return ONE_VALUE;
         }
     }
 }
