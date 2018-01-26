@@ -10,9 +10,10 @@ namespace RomanNumerals
     {
         private readonly List<RomanNumeralValue> _romanNumeralValues;
         private int _maxPossibleLetterNumberOfLetter = 3;
+
         public RomanNumeralGenerator()
         {
-            _romanNumeralValues = new List<RomanNumeralValue>()
+            _romanNumeralValues = new List<RomanNumeralValue>
             {
                 new RomanNumeralValue
                 {
@@ -23,6 +24,11 @@ namespace RomanNumerals
                 {
                     Symbol = "V",
                     Value = 5
+                },
+                new RomanNumeralValue
+                {
+                    Symbol = "X",
+                    Value = 10
                 }
             };
         }
