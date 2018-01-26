@@ -10,14 +10,26 @@ namespace RomanNumerals
     {
         private const string ONE_VALUE = "I";
 
+        private string _romanNumeral;
+
+        public RomanNumeralGenerator()
+        {
+            _romanNumeral = string.Empty;
+        }
         public string GenerateRomanNumeral(int value)
         {
-            string romanNumeral = string.Empty;
-            for (int i = 1; i <= value; i++)
-            {
-                romanNumeral += ONE_VALUE;
+            while(value > 0)
+            { 
+                AddValueOfOneToRomanNumeral();
+                value--;
             }
-            return romanNumeral;
+
+            return _romanNumeral;
+        }
+
+        private void AddValueOfOneToRomanNumeral()
+        {
+            _romanNumeral += ONE_VALUE;
         }
     }
 }
