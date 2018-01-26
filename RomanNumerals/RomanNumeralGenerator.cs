@@ -55,9 +55,9 @@ namespace RomanNumerals
                 var lowestPossibleRomanNumeral = _romanNumeralValues.OrderBy(r => r.Value).First();
 
                 if ((romanNumeral.Contains(symbolLimit) && romanNumeral != symbolLimit) ||
-                    value == romanNumeralValue.Value - lowestPossibleRomanNumeral.Value)
+                    currentValue == romanNumeralValue.Value - lowestPossibleRomanNumeral.Value)
                 {
-                    romanNumeral = addValueToString(lowestPossibleRomanNumeral, ref currentValue) +
+                    romanNumeral += addValueToString(lowestPossibleRomanNumeral, ref currentValue) +
                                    addValueToString(romanNumeralValue, ref currentValue);
 
                 }
