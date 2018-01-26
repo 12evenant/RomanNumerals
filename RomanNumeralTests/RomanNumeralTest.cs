@@ -13,6 +13,7 @@ namespace RomanNumeralTests
         [InlineData(6, "VI")]
         [InlineData(9, "IX")]
         [InlineData(10, "X")]
+        [InlineData(13,"XIII")]
         public void WhenAValueIsPassedItOutputsTheRomanNumeralVersionOfThatNumber(int value, string expectedValue)
         {
             RomanNumeralGenerator romanNumeralGenerator = new RomanNumeralGenerator();

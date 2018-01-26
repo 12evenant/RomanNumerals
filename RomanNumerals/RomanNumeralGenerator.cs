@@ -49,6 +49,7 @@ namespace RomanNumerals
 
 
                 var lowestPossibleRomanNumeral = _romanNumeralValues.OrderBy(r => r.Value).First();
+
                 if ((romanNumeral.Contains(symbolLimit) && romanNumeral != symbolLimit) ||
                     value == romanNumeralValue.Value - lowestPossibleRomanNumeral.Value)
                 {
