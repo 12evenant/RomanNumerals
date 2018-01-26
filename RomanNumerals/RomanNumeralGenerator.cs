@@ -12,7 +12,12 @@ namespace RomanNumerals
 
         public string GenerateRomanNumeral(int value)
         {
-            return ONE_VALUE;
+            string romanNumeral = string.Empty;
+            for (int i = 1; i <= value; i++)
+            {
+                romanNumeral += ONE_VALUE;
+            }
+            return romanNumeral;
         }
     }
 }
