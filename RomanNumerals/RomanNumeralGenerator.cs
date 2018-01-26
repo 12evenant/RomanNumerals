@@ -20,24 +20,28 @@ namespace RomanNumerals
 
         public string GenerateRomanNumeral(int value)
         {
-            if (value >= 5)
+            while (value >= 5)
             {
-                _romanNumeral += FIVE_VALUE;
+                AddValueOfFiveToRomanNumeral();
+                value -= 5;
             }
-            else
+            while (value > 0)
             {
-                while (value > 0)
-                {
-                    AddValueOfOneToRomanNumeral();
-                    value--;
-                }
+                AddValueOfOneToRomanNumeral();
+                value--;
             }
+
             return _romanNumeral;
         }
 
         private void AddValueOfOneToRomanNumeral()
         {
             _romanNumeral += ONE_VALUE;
+        }
+
+        private void AddValueOfFiveToRomanNumeral()
+        {
+            _romanNumeral += FIVE_VALUE;
         }
     }
 }
