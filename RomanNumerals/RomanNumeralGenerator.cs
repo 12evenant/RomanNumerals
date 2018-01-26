@@ -45,14 +45,16 @@ namespace RomanNumerals
                     romanNumeral += addValueToString(romanNumeralValue, ref currentValue);
                 }
 
-                if (currentValue == 0)
+                var lowestPossibleRomanNumeral = _romanNumeralValues.OrderBy(r => r.Value).First();
+
+                if (currentValue < lowestPossibleRomanNumeral.Value)
                     continue;
 
                 string symbolLimit =
                     string.Concat(Enumerable.Repeat(romanNumeralValue.Symbol, _maxPossibleLetterNumberOfLetter));
 
 
-                var lowestPossibleRomanNumeral = _romanNumeralValues.OrderBy(r => r.Value).First();
+                
 
                 if ((romanNumeral.Contains(symbolLimit) && romanNumeral != symbolLimit) ||
                     currentValue == romanNumeralValue.Value - lowestPossibleRomanNumeral.Value)
