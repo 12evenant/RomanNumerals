@@ -10,7 +10,7 @@ namespace RomanNumerals
     {
         public string GenerateRomanNumeral(int value)
         {
-            throw new NotImplementedException();
+            return "I";
         }
     }
 }
