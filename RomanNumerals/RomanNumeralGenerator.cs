@@ -8,8 +8,8 @@ namespace RomanNumerals
 {
     public class RomanNumeralGenerator
     {
-        private List<RomanNumeralValue> _romanNumeralValues;
-
+        private readonly List<RomanNumeralValue> _romanNumeralValues;
+        private int _maxPossibleLetterNumberOfLetter = 3;
         public RomanNumeralGenerator()
         {
             _romanNumeralValues = new List<RomanNumeralValue>()
@@ -38,8 +38,18 @@ namespace RomanNumerals
                 {
                     romanNumeral += addValueToString(romanNumeralValue, ref currentValue);
                 }
-            }
+                string symbolLimit =
+                    string.Concat(Enumerable.Repeat(romanNumeralValue.Symbol, _maxPossibleLetterNumberOfLetter));
 
+                if (romanNumeral.Contains(symbolLimit) && romanNumeral != symbolLimit)
+                {
+                    var nextRomanNumeralValue =
+                        _romanNumeralValues.Where(v => v.Value > romanNumeralValue.Value).OrderBy(v => v.Value).First();
+
+                    romanNumeral = addValueToString(romanNumeralValue, ref currentValue) +
+                                   addValueToString(nextRomanNumeralValue, ref currentValue);
+                }
+            }
 
             return romanNumeral;
         }
