@@ -10,6 +10,7 @@ namespace RomanNumeralTests
         [InlineData(3,"III")]
         [InlineData(4,"IV")]
         [InlineData(5,"V")]
+        [InlineData(6, "VI")]
         public void WhenAValueIsPassedItOutputsTheRomanNumeralVersionOfThatNumber(int value, string expectedValue)
         {
             RomanNumeralGenerator romanNumeralGenerator = new RomanNumeralGenerator();
@@ -18,5 +19,6 @@ namespace RomanNumeralTests
 
             Assert.Equal(expectedValue, actualValue);
         }
+
     }
 }
