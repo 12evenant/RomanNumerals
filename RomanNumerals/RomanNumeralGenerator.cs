@@ -8,49 +8,60 @@ namespace RomanNumerals
 {
     public class RomanNumeralGenerator
     {
-        private const string ONE_VALUE = "I";
-        private const string FIVE_VALUE = "V";
-
-        private string _romanNumeral;
+        private List<RomanNumeralValue> _romanNumeralValues;
 
         public RomanNumeralGenerator()
         {
-            _romanNumeral = string.Empty;
+            _romanNumeralValues = new List<RomanNumeralValue>()
+            {
+                new RomanNumeralValue
+                {
+                    Symbol = "I",
+                    Value = 1
+                },
+                new RomanNumeralValue
+                {
+                    Symbol = "V",
+                    Value = 5
+                }
+            };
         }
 
         public string GenerateRomanNumeral(int value)
         {
-            while (value >= 5)
+            string romanNumeral = string.Empty;
+            int currentValue = value;
+
+            foreach (var romanNumeralValue in _romanNumeralValues.OrderByDescending(r => r.Value))
             {
-                AddValueOfFiveToRomanNumeral();
-                value -= 5;
-            }
-            while (value > 0)
-            {
-                AddValueOfOneToRomanNumeral();
-                value--;
+                while (currentValue >= romanNumeralValue.Value)
+                {
+                    romanNumeral += addValueToString(romanNumeralValue, ref currentValue);
+                }
             }
 
-            return _romanNumeral;
+
+            return romanNumeral;
         }
 
-        private void AddValueOfOneToRomanNumeral()
+        private string addValueToString(RomanNumeralValue romanNumeralValue, ref int currentValue)
         {
-            string threeOnes = ONE_VALUE + ONE_VALUE + ONE_VALUE;
+            currentValue -= romanNumeralValue.Value;
+            return romanNumeralValue.Symbol;
+        }
+        //private void AddValueOfOneToRomanNumeral()
+        //{
+        //    string threeOnes = ONE_VALUE + ONE_VALUE + ONE_VALUE;
             
-            if(!_romanNumeral.Contains(threeOnes))
-                _romanNumeral += ONE_VALUE;
-            else
-            {
-                _romanNumeral = string.Empty;
-                _romanNumeral += ONE_VALUE;
-                _romanNumeral += FIVE_VALUE;
-            }
-        }
+        //    if(!_romanNumeral.Contains(threeOnes))
+        //        _romanNumeral += ONE_VALUE;
+        //    else
+        //    {
+        //        _romanNumeral = string.Empty;
+        //        _romanNumeral += ONE_VALUE;
+        //        _romanNumeral += FIVE_VALUE;
+        //    }
+        //}
 
-        private void AddValueOfFiveToRomanNumeral()
-        {
-            _romanNumeral += FIVE_VALUE;
-        }
     }
 }
